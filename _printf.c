@@ -10,7 +10,7 @@ int _putchar(char c)
 return (write(1, &c, 1));
 }
 /*
- * handle_string - handle_string - A function that takes argumet
+ * handle_string - A function that takes pointer to a character as parameter
  */
 int handle_string(char *str)
 {
