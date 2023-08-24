@@ -3,8 +3,8 @@
 /*
  *_printf - Printf function
  * @format: format.
- * handle_string : A function that takes argument
- * _putchar : print a single character
+ * handle_string - A function that takes argument
+ * _putchar - print a single character
  * Return: Printed chars.
  */
 int _putchar(char c)
@@ -42,8 +42,7 @@ format++;
 if (*format == 'c')
 {
 char c = va_arg(args, int);
-_putchar (c);
-count++;
+count += _putchar (c);
 }
 else if (*format == 's')
 {
