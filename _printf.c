@@ -1,9 +1,7 @@
 #include "main.h"
-#include <stdarg.h>
+
 /*
- *_printf - Printf function
  * @format: format.
- * handle_string - A function that takes argument
  * _putchar - print a single character
  * Return: Printed chars.
  */
@@ -11,7 +9,9 @@ int _putchar(char c)
 {
 return (write(1, &c, 1));
 }
-
+/*
+ * handle_string - handle_string - A function that takes argumet
+ */
 int handle_string(char *str)
 {
 int i = 0;
@@ -27,6 +27,9 @@ i++;
 }
 return (i);
 }
+/*
+ * _printf - print a function
+ */
 int _printf(const char *format, ...)
 {
 int count = 0;
