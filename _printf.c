@@ -27,8 +27,7 @@ case 's':
 char *s = va_arg(args, char *);
 while (*s != '\0')
 {
-write(1, s, 1);
-s++;
+s += write(1, s, 1);
 count++;
 }
 break;
@@ -54,4 +53,3 @@ format++;
 va_end(args);
 return (count);
 }
-
