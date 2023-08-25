@@ -11,12 +11,15 @@
 int print_int_num(va_list args)
 {
 char *sn;
-int isneg, i, sdno, dno, tmp;
+int isneg, i, tmp, sdno = 0, dno = 0;
 int n = va_arg(args, int);
 isneg = n < 0 ? 1 : 0;
 tmp = n < 0 ? -n : n;
-dno = 0;
-sdno = 0;
+if (n == 0)
+{
+write(1, "0", 1);
+return (1);
+}
 while (tmp > 0)
 {
 tmp = tmp / 10;
