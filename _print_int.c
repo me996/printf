@@ -27,6 +27,8 @@ sdno = dno + 2;
 else
 sdno = dno + 1;
 sn = malloc(sizeof(char) * sdno);
+if (sn == NULL)
+return (-1);
 if (isneg)
 {
 sn[0] = '-';
@@ -40,6 +42,7 @@ while (tmp > 0)
 sn[--i] = tmp % 10 + '0';
 tmp = tmp / 10;
 }
- write(1, sn, sdno - 1);
+write(1, sn, sdno - 1);
+free(sn);
 return (sdno - 1);
 }
