@@ -25,3 +25,21 @@ for (i = 0; str[i] != '\0'; i++)
 ;
 return (i);
 }
+
+/**
+ * in_range - matcing characters
+ * @c: the input character
+ * Return: for matching 1,else 0
+*/
+
+int in_range(char c)
+{
+int i;
+char valid[] = {'c', 's', '%', 'i', 'd'};
+for (i = 0; i < 5; i++)
+{
+if (valid[i] == c)
+return (1);
+}
+return (0);
+}

@@ -16,7 +16,7 @@ counter = 0;
 written = 0;
 for (i = 0; format[i] != '\0'; i++)
 {
-if (format[i] == '%')
+if (format[i] == '%' && in_range(format[i + 1]))
 {
 written = get_print_func(format[++i])(args);
 }

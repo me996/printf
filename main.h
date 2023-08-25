@@ -23,6 +23,7 @@ int _printf(const char *format, ...);
 /* utilities functions */
 int _putchar(char letter);
 int _strlen(char *str);
+int in_range(char c);
 
 /* printing different specifiers */
 int print_int_num(va_list args);
