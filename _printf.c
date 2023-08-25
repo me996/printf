@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 int i, written, counter;
 va_list args;
 va_start(args, format);
-if (!format)
+if (!format || (format[0] == '%' && !format[1]))
 return (-1);
 counter = 0;
 written = 0;
