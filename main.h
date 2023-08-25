@@ -4,6 +4,13 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+int write_char(int c);
+int write_string(const char *s);
+int print_char(va_list args, int count);
+int print_string(va_list args, int count);
+int print_char(va_list args);
+int print_string(va_list args);
+
 /* struct to assign pointer functions */
 
 /**
