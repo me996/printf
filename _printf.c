@@ -1,10 +1,33 @@
 #include "main.h"
-#include <stdarg.h>
 /**
- * _printf - prints any string with variables
- * @format: the string to be printed
- * Return: 1 for success and -1 when fail
-*/
+ * write_char - Writes a character to standard output.
+ * @c: The character to write.
+ * Return: Number of characters written.
+ */
+int write_char(int c)
+{
+return (write(1, &c, 1));
+}
+/**
+ * write_string - Writes a string to standard output.
+ * @s: The string to write.
+ * Return: Number of characters written.
+ */
+int write_string(const char *s)
+{
+int count = 0;
+while (*s != '\0')
+{
+count += write_char(*s);
+s++;
+}
+return (count);
+}
+/**
+ * _printf - Prints formatted output.
+ * @format: The format string.
+ * Return: Number of characters printed.
+ */
 int _printf(const char *format, ...)
 {
 int count = 0;
@@ -17,36 +40,33 @@ if (*format == '%')
 format++;
 switch (*format)
 {
-case 'c': {
+case 'c':
+{
 int c = va_arg(args, int);
-count += write(1, &c, 1);
+count += write_char(c);
 break;
 }
 case 's':
 {
 char *s = va_arg(args, char *);
-while (*s != '\0')
-{
-s += write(1, s, 1);
-count++;
-}
+count += write_string(s);
 break;
 }
 case '%':
 {
-count += write(1, "%", 1);
+count += write_char('%');
 break;
 }
 default:
 {
-count += write(1, format, 1);
+count += write_char(*format);
 break;
 }
 }
 }
 else
 {
-count += write(1, format, 1);
+count += write_char(*format);
 }
 format++;
 }
