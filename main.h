@@ -4,6 +4,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+
+#define buffer 1024
 /* struct to assign pointer functions */
 
 /**
