@@ -3,7 +3,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
-​
 /**
  * print_int_num - print int variables
  * @args: the ist of arguments
@@ -17,6 +16,7 @@ int n = va_arg(args, int);
 isneg = n < 0 ? 1 : 0;
 tmp = n < 0 ? -n : n;
 dno = 0;
+sdno = 0;
 while (tmp > 0)
 {
 tmp = tmp / 10;
