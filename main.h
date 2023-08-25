@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+<<<<<<< HEAD
 int write_char(int c);
 int write_string(const char *s);
 int print_char(va_list args, int count);
@@ -11,6 +12,10 @@ int print_string(va_list args, int count);
 int print_char(va_list args);
 int print_string(va_list args);
 
+=======
+
+#define buffer 1024
+>>>>>>> 77274702f559c4c4ae5c8c067d7d1dc455a82726
 /* struct to assign pointer functions */
 
 /**
