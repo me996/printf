@@ -19,8 +19,7 @@ switch (*format)
 {
 case 'c': {
 int c = va_arg(args, int);
-write(1, &c, 1);
-count++;
+count += write(1, &c, 1);
 break;
 }
 case 's':
@@ -36,22 +35,19 @@ break;
 }
 case '%':
 {
-write(1, "%", 1);
-count++;
+count += write(1, "%", 1);
 break;
 }
 default:
 {
-write(1, format, 1);
-count++;
+count += write(1, format, 1);
 break;
 }
 }
 }
 else
 {
-write(1, format, 1);
-count++;
+count += write(1, format, 1);
 }
 format++;
 }
