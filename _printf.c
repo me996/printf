@@ -1,33 +1,75 @@
 #include "main.h"
-#include <stdarg.h>
 /**
- * _printf - prints any string with variables
- * @format: the string to be printed
- * Return: 1 for success and -1 when fail
-*/
+ * write_char - Writes a character to standard output.
+ * @c: The character to write.
+ * Return: Number of characters written.
+ */
+int write_char(int c)
+{
+return (write(1, &c, 1));
+}
+/**
+ * write_string - Writes a string to standard output.
+ * @s: The string to write.
+ * Return: Number of characters written.
+ */
+int write_string(const char *s)
+{
+int count = 0;
+while (*s != '\0')
+{
+count += write_char(*s);
+s++;
+}
+return (count);
+}
+/**
+ * _printf - Prints formatted output.
+ * @format: The format string.
+ * Return: Number of characters printed.
+ */
 int _printf(const char *format, ...)
 {
-int i, written, counter;
+int count = 0;
 va_list args;
 va_start(args, format);
-if (!format || (format[0] == '%' && !format[1]))
-return (-1);
-if (format[0] == '%' && format[1] == ' ' && !format[2])
-return (-1);
-counter = 0;
-written = 0;
-for (i = 0; format[i] != '\0'; i++)
+while (*format != '\0')
 {
-if (format[i] == '%' && in_range(format[i + 1]))
+if (*format == '%')
 {
-written = get_print_func(format[++i])(args);
+format++;
+switch (*format)
+{
+case 'c':
+{
+int c = va_arg(args, int);
+count += write_char(c);
+break;
+}
+case 's':
+{
+char *s = va_arg(args, char *);
+count += write_string(s);
+break;
+}
+case '%':
+{
+count += write_char('%');
+break;
+}
+default:
+{
+count += write_char(*format);
+break;
+}
+}
 }
 else
 {
-_putchar(format[i]);
-counter++;
+count += write_char(*format);
 }
+format++;
 }
 va_end(args);
-return (counter + written);
+return (count);
 }
