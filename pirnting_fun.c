@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <unistd.h>
-​
+
 /**
  * print_char - print char variables
  * @args: the ist of arguments
@@ -12,7 +12,7 @@ int print_char(va_list args)
 char c = va_arg(args, int);
 return (_putchar(c));
 }
-​
+
 /**
  * print_percent - print precent character
  * @args: the ist of arguments
@@ -23,7 +23,7 @@ int print_percent(va_list args)
 va_arg(args, int);
 return (write(1, "%", 1));
 }
-​
+
 /**
  * print_string - print string variable
  * @args: the ist of arguments
